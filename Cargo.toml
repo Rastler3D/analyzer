@@ -1,0 +1,35 @@
+[package]
+name = "analyzer"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+unicode-script = { version = "0.5.6" }
+whatlang = "0.16.4"
+whichlang = "0.1.0"
+lingua = "1.6.2"
+paste = "1.0.14"
+serde = { version = "1.0.197", features = ["derive"] }
+strum = { version = "0.26.2", features = ["derive"] }
+regex = "1.10.4"
+safer_owning_ref = "0.5.0"
+bitflags = { version = "2.5.0", features = ["serde"] }
+polonius-the-crab = "0.4.1"
+anymap = "1.0.0-beta.2"
+typetag = { path = "typetag-0.2.16" }
+schemars = { version = "0.8.19", features = ["derive"] }
+serde_regex = "1.1.0"
+serde_derive = "1.0.200"
+serde_json = "1.0.117"
+[patch.crates-io]
+stable_deref_trait = { path = "stable_deref_trait-1.2.0"  }
+
+
+[dev-dependencies]
+criterion = { version = "0.5.1", features = ["html_reports"] }
+
+#[[bench]]
+##name = "bench"
+##harness = false
