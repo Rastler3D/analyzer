@@ -169,6 +169,8 @@ struct TokenizerStream<
 
 #[cfg(test)]
 mod tests {
+    use std::collections::{BTreeMap, HashMap};
+    use schemars::{Map, schema_for};
     use crate::analyzer::{BoxableAnalyzer, BoxAnalyzer};
     use super::*;
     use crate::inline_dyn::Dynamic;
@@ -229,7 +231,9 @@ mod tests {
             token_filters: dynm,
         };
 
-
+        let schema = schema_for!(BTreeMap<String,BoxAnalyzer>);
+        let schema = serde_json::to_string(&schema).unwrap();
+        println!("{}", schema);
 
         let mut stream = analyzer.analyze(text);
         let mut stream = test_move(stream);
